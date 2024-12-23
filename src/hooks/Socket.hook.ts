@@ -29,14 +29,24 @@ const useSocket = () => {
   };
 
   useEffect(() => {
-    console.log("####$$$");
     SOCKET.onopen = () => {
       const query = {
         type: "subscribe",
         heartbeat: false,
         apikey: process.env.REACT_APP_TOKEN,
         subscribe_data_type: ["trade"],
-        subscribe_filter_asset_id: ["BTC/USD", "ETH/USD"],
+        subscribe_filter_asset_id: [
+          "BTC/USD",
+          "ETH/USD",
+          "XRP/USD",
+          "BNB/USD",
+          "SOL/USD",
+          "ADA/USD",
+          "TRX/USD",
+          "TON/USD",
+          "SHIB/USD",
+          "BCH/USD",
+        ],
         // subscribe_filter_symbol_id: ["BTC", "ETH"],
       };
       SOCKET.send(JSON.stringify(query));
@@ -50,7 +60,7 @@ const useSocket = () => {
           heartbeat: false,
           apikey: process.env.REACT_APP_TOKEN,
           subscribe_data_type: ["trade"],
-          subscribe_filter_asset_id: ["BTC/USD", "ETH/USD"],
+          // subscribe_filter_asset_id: ["BTC/USD", "ETH/USD"],
           // subscribe_filter_symbol_id: ["BTC", "ETH"],
         };
         SOCKET.send(JSON.stringify(query));
