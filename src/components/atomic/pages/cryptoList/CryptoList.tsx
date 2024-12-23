@@ -40,7 +40,7 @@ const CryptoList = () => {
                 </td>
                 <td className="p-4 border-b border-slate-200">
                   <p className="block text-sm text-slate-800">
-                    {NumberUtil.formatNumber(item.price_usd)}
+                    {NumberUtil.formatNumber(item.price_usd)} $
                   </p>
                 </td>
               </tr>
